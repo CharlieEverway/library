@@ -1,0 +1,35 @@
+
+
+body,
+html {
+    margin: 0;
+    height: 100%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+div {
+    border: solid red 1px;
+    box-sizing: border-box;
+}
+
+#layout {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 5fr 2fr;
+        height: 100vh;   /* or height: 100%; */
+    width: 100vw;    /* if you want full width */
+}
+
+
+
+#formContainer{
+    border: solid 5px black;
+    width:fit-content;
+    padding:5px;
+}
+
+.hidden {
+  display: none;
+}
+
