@@ -61,16 +61,17 @@ function displayBooks() {
 
         const bookCard = document.createElement('div');
         bookCard.textContent = myLibrary[i].title;
+        bookCard.classList.add('card');
         container.appendChild(bookCard)
     }
 }
 //functions
 
 
-// addBookToLibrary("The Hobbit", "J.R.R. Tolkien", false);
-// addBookToLibrary("Game of Thrones", "G.R.R. Martin", false);
-// addBookToLibrary("The Tester", "Mr Test", true);
-// displayBooks();
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", false);
+addBookToLibrary("Game of Thrones", "G.R.R. Martin", false);
+addBookToLibrary("The Tester", "Mr Test", true);
+displayBooks();
 //test code
 
 
