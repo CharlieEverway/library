@@ -88,7 +88,7 @@ html {
 
 .card {
     width: 200px;
-    height: 300px;
+    height: fit-content;
     background-color: #E9F0EA;
     border-radius: 10px;
     box-shadow: 0 1px 4px rgba(60, 137, 109, 0.2);

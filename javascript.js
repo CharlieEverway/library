@@ -57,6 +57,19 @@ function Book(title, author, read) {
 }
 //book object constructor
 
+// Book.prototype.deleteBook = function () {
+//     alert("Deleted!")
+// }
+
+Book.prototype.getId = function () {
+    return this.id;
+};
+
+Book.prototype.toggleRead = function () {
+    this.read = !this.read;
+};
+//book object prototype methods
+
 
 function addBookToLibrary(title, author, read) {
     let newBook = new Book(title, author, read)
@@ -91,6 +104,12 @@ function displayBooks() {
         checkbox.type = 'checkbox';
         checkbox.id = 'read';
         checkbox.checked = myLibrary[i].read;
+
+        checkbox.addEventListener('change', () => {
+            // myLibrary[i].read = checkbox.checked;
+            myLibrary[i].toggleRead();
+        }); //listens for changes on read status
+
         const label = document.createElement('label');
         label.textContent = 'Have you read it?';
         label.htmlFor = checkbox.id;
@@ -99,17 +118,25 @@ function displayBooks() {
         bookCard.appendChild(statusContainer);
         //checkbox
 
+        bookCard.dataset.id = myLibrary[i].id;
+        //apply our unique ID to the card and button
+
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
         deleteButton.classList.add('deleteButton');
-        button.addEventListener('click', () => {
-            alert('Button clicked!');
+        deleteButton.addEventListener('click', () => {
+            const bookID = myLibrary[i].getId();
+            const index = myLibrary.findIndex(book => book.id === bookID);
+            if (index !== -1) {
+                myLibrary.splice(index, 1);
+            }
+            displayBooks();
         });
-        const container = document.getElementById('container');
-        bookCard.appendChild(button);
+        deleteButton.dataset.id = myLibrary[i].id;
+        bookCard.appendChild(deleteButton);
         //button 
-
         container.appendChild(bookCard)
+        //apply everything
     }
 }
 //functions
@@ -119,12 +146,3 @@ addBookToLibrary("Game of Thrones", "G.R.R. Martin", false);
 addBookToLibrary("The Tester", "Mr Test", true);
 displayBooks();
 //test code
-
-
-// Add a button on each book’s display to remove the book from the library.
-// You will need to associate your DOM elements with the actual book objects in some way. 
-
-// One easy solution is giving them a data-attribute that corresponds to the unique id of the respective book object.
-
-// Add a button on each book’s display to change its read status.
-// To facilitate this you will want to create Book prototype function that toggles a book instance’s read status.
