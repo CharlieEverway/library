@@ -6,9 +6,7 @@ html {
     font-size: 1.2rem;
     box-sizing: border-box;
     background-color: #F5F7F2;
-    /* neutral light */
     color: #2F3E3A;
-    /* neutral dark */
 }
 
 #layout {
@@ -17,7 +15,6 @@ html {
     grid-template-rows: 1fr 8fr 1fr;
     height: 100vh;
     background-color: #F5F7F2;
-    /* match body */
 }
 
 #header {
@@ -31,9 +28,7 @@ html {
 #header,
 #footer {
     background-color: #A7C4A0;
-    /* secondary green */
     color: #2F3E3A;
-    /* neutral dark text */
 }
 
 #header img{
@@ -48,7 +43,6 @@ html {
 
 #website-header-text {
     color: #3C896D;
-    /* primary green */
     font-size: 32px;
 }
 
@@ -62,10 +56,6 @@ html {
     gap: 10px;
     padding: 10px;
 }
-
-/* div{
-    border:red solid 1px;
-} */
 
 #main-area {
     width: 80vw;
@@ -126,7 +116,6 @@ label {
 
 button {
     background-color: #3C896D;
-    /* primary green */
     color: white;
     padding: 0.6rem 1.2rem;
     border: none;
@@ -138,7 +127,6 @@ button {
 
 button:hover {
     background-color: #2F3E3A;
-    /* neutral dark on hover */
 }
 
 button:active {

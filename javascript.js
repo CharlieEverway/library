@@ -13,15 +13,24 @@ addBookButton.addEventListener('click', function () {
 
 
 form.addEventListener('submit', (event) => {
-    event.preventDefault(); // stop form from reloading the page
+    event.preventDefault();
+    // stop form from reloading the page
 
-    // Your form processing code here
+    const bookTitleInput = document.getElementById('title');
+    const bookAuthorInput = document.getElementById('author');
+    const bookReadStatus = document.getElementById('read');
+    const bookTitle = bookTitleInput.value;
+    const bookAuthor = bookAuthorInput.value;
+    const bookRead = bookReadStatus.checked;
+    console.log(bookTitle);
+    console.log(bookAuthor);
+    console.log(bookRead);
+    // Process form input into variables
 
-    // If success, close the popup:
     formContainer.classList.toggle("hidden");
+    form.reset(); 
+    // If success, close the popup and clear the form
 });
-
-
 
 
 cancelButton.addEventListener('click', (event) => {
@@ -29,8 +38,6 @@ cancelButton.addEventListener('click', (event) => {
     form.reset(); //resets the form
     formContainer.classList.toggle('hidden');
 });
-
-
 //buttons
 
 const myLibrary = [];
@@ -75,13 +82,6 @@ displayBooks();
 //test code
 
 
-// next steps
-// basic styling should be added to make the site readable and easy for testing
-//our submit box closes the box even if we havent added anything
-//the flow process should be configured
-
-
-
 // Add a “New Book” button that brings up a form allowing users to input the details for the new book and add it to the
 //  library: author, title, number of pages, whether it’s been read and anything else you might want. 
 
@@ -96,6 +96,8 @@ displayBooks();
 
 // Add a button on each book’s display to remove the book from the library.
 // You will need to associate your DOM elements with the actual book objects in some way. 
+
 // One easy solution is giving them a data-attribute that corresponds to the unique id of the respective book object.
+
 // Add a button on each book’s display to change its read status.
 // To facilitate this you will want to create Book prototype function that toggles a book instance’s read status.
