@@ -18,17 +18,20 @@ form.addEventListener('submit', (event) => {
 
     const bookTitleInput = document.getElementById('title');
     const bookAuthorInput = document.getElementById('author');
-    const bookReadStatus = document.getElementById('read');
-    const bookTitle = bookTitleInput.value;
-    const bookAuthor = bookAuthorInput.value;
-    const bookRead = bookReadStatus.checked;
-    console.log(bookTitle);
-    console.log(bookAuthor);
-    console.log(bookRead);
+    const bookReadStatus = document.getElementById('readInput');
+    const title = bookTitleInput.value;
+    const author = bookAuthorInput.value;
+    const read = bookReadStatus.checked;
+    console.log(title);
+    console.log(author);
+    console.log(read);
+
+    addBookToLibrary(title, author, read);
+    displayBooks();
     // Process form input into variables
 
     formContainer.classList.toggle("hidden");
-    form.reset(); 
+    form.reset();
     // If success, close the popup and clear the form
 });
 
@@ -62,36 +65,60 @@ function addBookToLibrary(title, author, read) {
 }
 
 function displayBooks() {
+    container.innerHTML = '';
     let numberOfBooks = myLibrary.length;
     for (let i = 0; i < numberOfBooks; i++) {
         console.log(myLibrary[i]);
-
         const bookCard = document.createElement('div');
-        bookCard.textContent = myLibrary[i].title;
         bookCard.classList.add('card');
+        //create our card
+
+        const bookTitle = document.createElement('div');
+        bookTitle.textContent = myLibrary[i].title;
+        bookTitle.classList.add('bolded')
+        bookCard.appendChild(bookTitle)
+        //book title
+
+        const bookAuthor = document.createElement('div');
+        bookAuthor.textContent = myLibrary[i].author;
+        bookCard.appendChild(bookAuthor);
+        //author
+
+        const statusContainer = document.createElement('div');
+        statusContainer.classList.add('status-container');
+        //creates a container for our status box
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = 'read';
+        checkbox.checked = myLibrary[i].read;
+        const label = document.createElement('label');
+        label.textContent = 'Have you read it?';
+        label.htmlFor = checkbox.id;
+        statusContainer.appendChild(label);
+        statusContainer.appendChild(checkbox);
+        bookCard.appendChild(statusContainer);
+        //checkbox
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.classList.add('deleteButton');
+        button.addEventListener('click', () => {
+            alert('Button clicked!');
+        });
+        const container = document.getElementById('container');
+        bookCard.appendChild(button);
+        //button 
+
         container.appendChild(bookCard)
     }
 }
 //functions
-
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", false);
 addBookToLibrary("Game of Thrones", "G.R.R. Martin", false);
 addBookToLibrary("The Tester", "Mr Test", true);
 displayBooks();
 //test code
-
-
-// Add a “New Book” button that brings up a form allowing users to input the details for the new book and add it to the
-//  library: author, title, number of pages, whether it’s been read and anything else you might want. 
-
-
-// How you decide to display this form is up to you. For example, you may wish to have a form show in a sidebar
-//  or you may wish to explore dialogs and modals using the <dialog> tag. However you do this, you will most
-//  likely encounter an issue where submitting your form will not do what you expect it to do. That’s because the
-//  submit input tries to send the data to a server by default. This is where event.preventDefault(); will
-//  come in handy. Check out the documentation for event.preventDefault and see how you can solve this issue!
-
 
 
 // Add a button on each book’s display to remove the book from the library.

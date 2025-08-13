@@ -13,7 +13,7 @@
     <div id="layout">
         <div id="header">
             <div id="main-title-area">
-                <div id="website-header-text">Your Library</div>
+                <div id="website-header-text">Your <span class="text-flair">Lib</span>rary</div>
                 <img src="img/book-logo.png">
             </div>
             <button id="addBookButton">Add Book</button>
@@ -21,27 +21,31 @@
         <div id="main-area">
             <div id="libraryContainer"></div>
         </div>
-        <div id="footer"></div>
+        <div id="footer">
+            <div id="footer-text">
+                The Odin Project: Library — Created by Charles Hatch.
+            </div>
+        </div>
 
     </div>
+    <!-- Website Main Layout -->
 
+<div id="formContainer" class="hidden">
+    <form id="popupForm">
+        <label for="title">Book Title:</label><br />
+        <input type="text" id="title" name="title" required minlength="2" /><br /><br />
 
+        <label for="author">Author Name:</label><br />
+        <input type="text" id="author" name="author" required minlength="2" /><br /><br />
 
-    <div id="formContainer" class="hidden">
-        <form id="popupForm">
-            <label for="title">Book Title:</label><br />
-            <input type="text" id="title" name="title" required minlength="2" /><br /><br />
+        <label for="readInput">Have you read it?</label><br />
+        <input type="checkbox" id="readInput" name="readInput"><br /><br />
 
-            <label for="author">Author Name:</label><br />
-            <input type="text" id="author" name="author" required minlength="2" /><br /><br />
-
-            <label for="read">Have you read it?</label><br />
-            <input type="checkbox" id="read" name="read"></textarea><br /><br />
-
-            <button type="submit" id="submitButon">Submit</button>
-            <button type="button" id="cancelButton">Cancel</button>
-        </form>
-    </div>
+        <button type="submit" id="submitButon">Submit</button>
+        <button type="button" id="cancelButton">Cancel</button>
+    </form>
+</div>
+    <!-- Input Form Popup Container -->
 
     <!-- MAKEE Te FORM APPEAR ABOVE ALL OTEHR THINGS!! -->
     <!-- LETS ADD FLEXIBLE TEXT AND SPACING LIKE REM etc. -->
