@@ -33,10 +33,10 @@
 <div id="formContainer" class="hidden">
     <form id="popupForm">
         <label for="title">Book Title:</label><br />
-        <input type="text" id="title" name="title" required minlength="2" /><br /><br />
+        <input type="text" id="title" name="title" required minlength="2" maxlength="25" /><br /><br />
 
         <label for="author">Author Name:</label><br />
-        <input type="text" id="author" name="author" required minlength="2" /><br /><br />
+        <input type="text" id="author" name="author" required minlength="2" maxlength="25" /><br /><br />
 
         <label for="readInput">Have you read it?</label><br />
         <input type="checkbox" id="readInput" name="readInput"><br /><br />
@@ -45,13 +45,6 @@
         <button type="button" id="cancelButton">Cancel</button>
     </form>
 </div>
-    <!-- Input Form Popup Container -->
-
-    <!-- MAKEE Te FORM APPEAR ABOVE ALL OTEHR THINGS!! -->
-    <!-- LETS ADD FLEXIBLE TEXT AND SPACING LIKE REM etc. -->
-
-    <!-- add code to prevent strange characters etc. -->
-
 
     <script src="javascript.js"></script>
 </body>

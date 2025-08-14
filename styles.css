@@ -25,15 +25,24 @@ html {
     margin-bottom: 1rem;
 }
 
+#header img {
+    width: 2rem;
+    height: 2rem;
+}
+
 #header,
 #footer {
     background-color: #A7C4A0;
     color: #2F3E3A;
 }
 
-#header img {
-    width: 32px;
-    height: 32px;
+#website-header-text {
+    color: #3C896D;
+    font-size: 2rem;
+}
+
+.text-flair {
+    color: #ffffff;
 }
 
 #footer {
@@ -51,15 +60,6 @@ html {
     color: #ffffff
 }
 
-#website-header-text {
-    color: #3C896D;
-    font-size: 32px;
-}
-
-.text-flair {
-    color: #ffffff;
-}
-
 #main-title-area {
     display: flex;
     gap: 20px;
@@ -72,8 +72,6 @@ html {
     gap: 10px;
     padding: 10px;
     width: 100%;
-
-
 }
 
 #main-area {
@@ -87,7 +85,8 @@ html {
 }
 
 .card {
-    width: 200px;
+    width: clamp(12rem, 10%, 18rem);
+    min-height: 13rem;
     height: fit-content;
     background-color: #E9F0EA;
     border-radius: 10px;
@@ -96,22 +95,34 @@ html {
     display: flex;
     flex-direction: column;
     color: #2F3E3A;
-    gap:20px;
+    gap: 1rem;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.buttons-container {
+    display: flex;
+    border: solid 1px black;
+    margin-top: auto;
+    align-self: flex-start;
 }
 
 .bolded {
     font-weight: 900;
 }
 
-.status-container{
-    display:flex;
-    justify-content: space-between;
-    gap:20px;
+.status-container {
+    display: flex;
+    text-align: center;
+    /* justify-content: space-between;
+    gap: 20px; */
     font-style: italic;
+    border: solid 1px red;
 }
 
-.status-container #read{
-    width:20px;
+.status-container #read {
+    width: 20px;
 }
 
 #formContainer {
@@ -165,4 +176,11 @@ button:hover {
 
 button:active {
     transform: scale(0.97);
+}
+
+.buttons-container button{
+    padding: 0.3rem 0.6rem;
+}
+.buttons-container button:hover{
+   background-color: #9d2626;
 }

@@ -5,16 +5,14 @@ const form = document.querySelector('#popupForm');
 const cancelButton = document.querySelector('#cancelButton');
 //DOM selectors
 
-
 addBookButton.addEventListener('click', function () {
     formContainer.classList.toggle('hidden');
 
 });
 
-
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    // stop form from reloading the page
+    // stop the submit/form from reloading the page
 
     const bookTitleInput = document.getElementById('title');
     const bookAuthorInput = document.getElementById('author');
@@ -25,41 +23,32 @@ form.addEventListener('submit', (event) => {
     console.log(title);
     console.log(author);
     console.log(read);
-
     addBookToLibrary(title, author, read);
     displayBooks();
-    // Process form input into variables
+    // Process form input into variables and add book to library
 
     formContainer.classList.toggle("hidden");
     form.reset();
-    // If success, close the popup and clear the form
+    // If submit passes required checks, close the popup and clear the form
 });
-
 
 cancelButton.addEventListener('click', (event) => {
     event.preventDefault(); // stop form from reloading the page
     form.reset(); //resets the form
     formContainer.classList.toggle('hidden');
 });
-//buttons
+//form button listeners
 
 const myLibrary = [];
-//book array
+//empty book array
 
 function Book(title, author, read) {
     this.title = title;
     this.author = author;
     this.read = read;
     this.id = crypto.randomUUID();
-    this.info = function () {
-        return `${this.title} by ${this.author}`;
-    };
 }
 //book object constructor
-
-// Book.prototype.deleteBook = function () {
-//     alert("Deleted!")
-// }
 
 Book.prototype.getId = function () {
     return this.id;
@@ -100,22 +89,25 @@ function displayBooks() {
         const statusContainer = document.createElement('div');
         statusContainer.classList.add('status-container');
         //creates a container for our status box
+        const buttonsContainer = document.createElement('div');
+        buttonsContainer.classList.add('buttons-container');
+
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.id = 'read';
         checkbox.checked = myLibrary[i].read;
 
         checkbox.addEventListener('change', () => {
-            // myLibrary[i].read = checkbox.checked;
             myLibrary[i].toggleRead();
-        }); //listens for changes on read status
+        });
+        //listens for changes on read status
 
         const label = document.createElement('label');
         label.textContent = 'Have you read it?';
         label.htmlFor = checkbox.id;
         statusContainer.appendChild(label);
         statusContainer.appendChild(checkbox);
-        bookCard.appendChild(statusContainer);
+        buttonsContainer.appendChild(statusContainer);
         //checkbox
 
         bookCard.dataset.id = myLibrary[i].id;
@@ -133,8 +125,10 @@ function displayBooks() {
             displayBooks();
         });
         deleteButton.dataset.id = myLibrary[i].id;
-        bookCard.appendChild(deleteButton);
-        //button 
+        buttonsContainer.appendChild(deleteButton);
+        bookCard.appendChild(buttonsContainer);
+        //deleteButton
+
         container.appendChild(bookCard)
         //apply everything
     }
@@ -142,7 +136,7 @@ function displayBooks() {
 //functions
 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", false);
-addBookToLibrary("Game of Thrones", "G.R.R. Martin", false);
+addBookToLibrary("Game of Thrones", "G.R.R. Martin", true);
 addBookToLibrary("The Tester", "Mr Test", true);
 displayBooks();
 //test code
