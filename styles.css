@@ -103,7 +103,6 @@ html {
 
 .buttons-container {
     display: flex;
-    border: solid 1px black;
     margin-top: auto;
     align-self: flex-start;
 }
@@ -114,20 +113,31 @@ html {
 
 .status-container {
     display: flex;
-    text-align: center;
-    /* justify-content: space-between;
-    gap: 20px; */
+    align-items: center;
+    gap: 0.1rem; 
     font-style: italic;
-    border: solid 1px red;
+    text-align: left; 
 }
 
-.status-container #read {
-    width: 20px;
+.buttons-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;          
+    margin-top: auto;
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    accent-color: #4caf50;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 20px;
 }
 
 #formContainer {
     box-sizing: border-box;
-    border: solid 3px black;
     border-radius: 10%;
     background-color: beige;
     width: auto;
@@ -141,6 +151,10 @@ html {
 
 label {
     font-size: 0.9rem;
+}
+
+.status-container label {
+    font-size: 0.8rem;
 }
 
 #title,
@@ -178,9 +192,10 @@ button:active {
     transform: scale(0.97);
 }
 
-.buttons-container button{
+.buttons-container button {
     padding: 0.3rem 0.6rem;
 }
-.buttons-container button:hover{
-   background-color: #9d2626;
+
+.buttons-container button:hover {
+    background-color: #9d2626;
 }

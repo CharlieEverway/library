@@ -103,7 +103,7 @@ function displayBooks() {
         //listens for changes on read status
 
         const label = document.createElement('label');
-        label.textContent = 'Have you read it?';
+        label.textContent = 'Read';
         label.htmlFor = checkbox.id;
         statusContainer.appendChild(label);
         statusContainer.appendChild(checkbox);
